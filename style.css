@@ -1,50 +1,146 @@
-.square {
-  width: 1.5rem;
-  height: 1.5rem;
-  background-color: white;
-  display: inline-block;
-  border: 1px solid black;
-  border-radius: 0.15rem;
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-/* .square:hover {
-  background-color: blue;
-} */
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+  5. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/*
+  6. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/*
+  7. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/*
+  8. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
 body {
   display: grid;
   place-items: center;
   background-color: aliceblue;
 }
+
 main {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
-/* .container {
-  border: hsla(120, 78%, 42%, 0.5) solid 10px;
-  border-radius: 0.5rem;
-} */
 
-/* CSS */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  max-width: 90%;
+  margin: 1rem;
+  background-color: tomato;
+  padding: 1.5rem;
+  border-radius: 0.875rem;
+}
+
+.card__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 22rem;
+  width: 22rem;
+  align-items: center;
+  border: 0.85rem solid black;
+  border-radius: 0.5rem;
+}
+
+.square {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  display: inline-block;
+}
+
+.row {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
 .button-19 {
   appearance: button;
-  background-color: #1899d6;
+  background-color: #238a26;
   border: solid transparent;
-  border-radius: 16px;
+  border-radius: 1rem;
   border-width: 0 0 4px;
   box-sizing: border-box;
   color: #ffffff;
   cursor: pointer;
   display: inline-block;
   font-family: din-round, sans-serif;
-  font-size: 15px;
+  font-size: 0.9rem;
   font-weight: 700;
   letter-spacing: 0.8px;
-  line-height: 20px;
+  line-height: 1.2rem;
   margin: 0;
   outline: none;
   overflow: visible;
-  padding: 13px 16px;
+  padding: 0.8rem 1rem;
   text-align: center;
   text-transform: uppercase;
   touch-action: manipulation;
@@ -54,14 +150,13 @@ main {
   -webkit-user-select: none;
   vertical-align: middle;
   white-space: nowrap;
-  width: 100%;
 }
 
 .button-19:after {
   background-clip: padding-box;
-  background-color: #1cb0f6;
+  background-color: #4caf50;
   border: solid transparent;
-  border-radius: 16px;
+  border-radius: 1rem;
   border-width: 0 0 4px;
   bottom: -4px;
   content: "";
@@ -92,52 +187,57 @@ main {
 }
 
 .button-19-red {
-  appearance: button;
-  background-color: #c71212;
-  border: solid transparent;
-  border-radius: 16px;
-  border-width: 0 0 4px;
-  box-sizing: border-box;
-  color: #ffffff;
-  cursor: pointer;
-  display: inline-block;
-  font-family: din-round, sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 0.8px;
-  line-height: 20px;
-  margin: 0;
-  outline: none;
-  overflow: visible;
-  padding: 13px 16px;
-  text-align: center;
-  text-transform: uppercase;
-  touch-action: manipulation;
-  transform: translateZ(0);
-  transition: filter 0.2s;
-  user-select: none;
-  -webkit-user-select: none;
-  vertical-align: middle;
-  white-space: nowrap;
-  width: 100%;
+  background-color: #238a26;
 }
+
 .button-19-red:after {
-  background-clip: padding-box;
-  background-color: #eb1d1d;
-  border: solid transparent;
-  border-radius: 16px;
-  border-width: 0 0 4px;
-  bottom: -4px;
-  content: "";
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: -1;
+  background-color: #4caf50;
 }
-.test {
-  text-align: center;
-  background-color: fuchsia;
-  padding: 1rem;
-  color: whitesmoke;
+
+.button-19-violet:after {
+  background-color: #4caf50;
+}
+
+.button-19-violet {
+  background-color: #238a26;
+}
+
+.card__header {
+  font-family: sans-serif;
+  color: white;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .card {
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+  .container {
+    width: 18rem;
+    height: 18rem;
+  }
+
+  .button-19 {
+    font-size: 0.8rem;
+    padding: 0.7rem 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+
+  .container {
+    width: 14rem;
+    height: 14rem;
+  }
+
+  .button-19 {
+    font-size: 0.7rem;
+    padding: 0.5rem 0.7rem;
+  }
 }
